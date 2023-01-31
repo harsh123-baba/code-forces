@@ -13,7 +13,7 @@ int lengthOfLIS(vector<int> &nums, int k)
             int not_take = dp[i + 1][prev + 1];
 
             int take = 0;
-            if (prev == -1 || (nums[i] > nums[prev] && nums[i] >= nums[prev]+k))
+            if (prev == -1 || (nums[i] > nums[prev] && nums[i] <= nums[prev]+k))
                 take = 1 + dp[i + 1][i + 1];
 
             dp[i][prev + 1] = max(take, not_take);
